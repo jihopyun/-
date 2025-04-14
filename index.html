@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>랜덤 유튜브 영상</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 2rem;
+      margin-top: 5%;
+    }
 
+    .video-container {
+      width: 560px;
+      height: 315px;
+      margin-top: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .play-button {
+      margin-bottom: 10px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .play-button:hover {
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <p id="message">'게임 하고 싶을 때 </p>
+
+  <!-- 영상 위에 위치한 버튼 -->
+  <button class="play-button" onclick="playRandomVideo()">🎲 닌텐도 노래 추천 </button>
+
+  <!-- 영상 -->
+  <div class="video-container">
+    <iframe id="videoFrame" src="" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    const videoList = [
+      "https://youtube.com/embed/NTa6Xbzfq1U?si=-Vr2HH-p_rg4wL_h",
+      "https://youtube.com/embed/MFtr4rw-dwI?si=3XMJLPP41AbveAEF",
+      "https://youtube.com/embed/waKumDkYrDY?si=Fs2AThpVs37qcJHP"
+];
+
+    function playRandomVideo() {
+      const randomIndex = Math.floor(Math.random() * videoList.length);
+      document.getElementById("videoFrame").src = videoList[randomIndex];
+    }
+  </script>
+</body>
+</html>
